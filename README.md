@@ -28,6 +28,10 @@ $ npm install
 ```sh
 $ npm run build
 ```
+- 運行單元測試和功能測試。大多數的單元測試可能只專注於單一個方法，功能測試則可以測試大部分的程式碼，包含一些物件如何進行互動，甚至是完整的 HTTP 請求到一個 JSON 端點。
+```sh
+$ php artisan test
+```
 - 在瀏覽器中輸入已定義的路由 URL 來訪問，例如：http://127.0.0.1:8000。
 - 你可以經由 `/register` 來進行註冊。
 - 完成註冊後，可以經由 `/login` 來進行登入。
@@ -35,6 +39,9 @@ $ npm run build
 ----
 
 ## 畫面截圖
+![](https://i.imgur.com/glHimG8.png)
+> 檢查程式碼是否如預期般執行
+
 ![](https://i.imgur.com/0HuTS73.png)
 > 建立新的帳號
 
