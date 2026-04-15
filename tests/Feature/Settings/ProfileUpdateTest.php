@@ -3,17 +3,20 @@
 namespace Tests\Feature\Settings;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ProfileUpdateTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_profile_page_is_displayed()
     {
         $user = User::factory()->create();
 
         $response = $this
             ->actingAs($user)
-            ->get('/settings/profile');
+            ->get(route('profile.edit'));
 
         $response->assertOk();
     }
@@ -24,14 +27,14 @@ class ProfileUpdateTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->patch('/settings/profile', [
+            ->patch(route('profile.update'), [
                 'name' => 'Test User',
                 'email' => 'test@example.com',
             ]);
 
         $response
             ->assertSessionHasNoErrors()
-            ->assertRedirect('/settings/profile');
+            ->assertRedirect(route('profile.edit'));
 
         $user->refresh();
 
@@ -46,14 +49,14 @@ class ProfileUpdateTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->patch('/settings/profile', [
+            ->patch(route('profile.update'), [
                 'name' => 'Test User',
                 'email' => $user->email,
             ]);
 
         $response
             ->assertSessionHasNoErrors()
-            ->assertRedirect('/settings/profile');
+            ->assertRedirect(route('profile.edit'));
 
         $this->assertNotNull($user->refresh()->email_verified_at);
     }
@@ -64,7 +67,7 @@ class ProfileUpdateTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->delete('/settings/profile', [
+            ->delete(route('profile.destroy'), [
                 'password' => 'password',
             ]);
 
@@ -82,14 +85,14 @@ class ProfileUpdateTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->from('/settings/profile')
-            ->delete('/settings/profile', [
+            ->from(route('profile.edit'))
+            ->delete(route('profile.destroy'), [
                 'password' => 'wrong-password',
             ]);
 
         $response
             ->assertSessionHasErrors('password')
-            ->assertRedirect('/settings/profile');
+            ->assertRedirect(route('profile.edit'));
 
         $this->assertNotNull($user->fresh());
     }

@@ -1,6 +1,6 @@
-# Laravel 12 Vue 入門套件
+# Laravel 13 Vue 入門套件
 
-入門套件採用 Inertia 2、Vue 3 組合式應用程式介面、Tailwind 和 shadcn-vue 建置，所有後端和前端代碼都存在於您的應用程式內，以實現完全自訂。
+入門套件採用 Inertia 3、Vue 3 組合式應用程式介面、Tailwind 和 shadcn-vue 建置，所有後端和前端代碼都存在於您的應用程式內，以實現完全自訂。
 
 ## 使用方式
 - 把整個專案複製一份到你的電腦裡，這裡指的「內容」不是只有檔案，而是指所有整個專案的歷史紀錄、分支、標籤等內容都會複製一份下來。
@@ -39,14 +39,14 @@ $ php artisan test
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/glHimG8.png)
+![](https://i.imgur.com/z9GPJwO.png)
 > 檢查程式碼是否如預期般執行
 
-![](https://i.imgur.com/0HuTS73.png)
+![](https://i.imgur.com/omBj1Cv.png)
 > 建立新的帳號
 
-![](https://i.imgur.com/n4k9sKD.png)
+![](https://i.imgur.com/tyBl2aE.png)
 > 使用現有的帳號登入後，進入控制面板
 
-![](https://i.imgur.com/lcGy2xk.png)
+![](https://i.imgur.com/aqeiz3q.png)
 > 管理使用者的個人資料
