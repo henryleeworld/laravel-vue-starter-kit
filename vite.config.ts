@@ -33,4 +33,15 @@ export default defineConfig({
         }),
         i18n(),
     ],
+    server: {
+        watch: {
+            ignored: [
+                '**/.agents/**',
+                '**/.claude/**',
+                '**/.cursor/**',
+                '**/.junie/**',
+                '**/vendor/**',
+            ],
+        },
+    },
 });
